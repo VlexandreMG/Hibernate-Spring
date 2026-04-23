@@ -10,6 +10,7 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories; // Celui-ci est nouveau
 
 // Imports Standards (DataSource et JPA)
 import javax.sql.DataSource;
@@ -17,6 +18,7 @@ import jakarta.persistence.EntityManagerFactory;
 
 @Configuration
 @EnableTransactionManagement
+@EnableJpaRepositories(basePackages = "com.mrNaina.dao")
 @ComponentScan(basePackages = "com.mrNaina") // Scan de tes DAOs
 public class HibernateConfig {
 
