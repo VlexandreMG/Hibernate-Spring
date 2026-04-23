@@ -18,7 +18,7 @@ import jakarta.persistence.EntityManagerFactory;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = "com.mrNaina.dao")
+@EnableJpaRepositories(basePackages = "com.mrNaina.repository") // Indique à Spring où sont tes repositories
 @ComponentScan(basePackages = "com.mrNaina") // Scan de tes DAOs
 public class HibernateConfig {
 

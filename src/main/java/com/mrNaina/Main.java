@@ -6,9 +6,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.mrNaina.models.Olona;
+import com.mrNaina.repository.OlonaRepository;
 import com.mrNaina.config.HibernateConfig;
-import com.mrNaina.dao.GenericDao;
-import com.mrNaina.dao.GenericDaoImpl;
 
 public class Main {
     public static void main(String[] args) {
@@ -43,13 +42,10 @@ public class Main {
 
         ApplicationContext context = new AnnotationConfigApplicationContext(HibernateConfig.class);
         
-        // On demande le Bean à Spring
-        GenericDao<Olona> dao = context.getBean(GenericDao.class);
+        // On demande le Repository (l'interface) et non plus l'implémentation
+        OlonaRepository repo = context.getBean(OlonaRepository.class);
         
-        Olona o = new Olona();
-        o.setNom("Spring Olona");
-        dao.save(o);
-        
-        System.out.println("Sauvegarde réussie avec Spring !");
+        // Toutes les fonctions existent déjà par défaut !
+        repo.findAll().forEach(o -> System.out.println(o.getNom()));
     }
 }
