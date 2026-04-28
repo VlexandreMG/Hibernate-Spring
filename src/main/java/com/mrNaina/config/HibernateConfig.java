@@ -41,6 +41,13 @@ public class HibernateConfig {
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
         
+        // Properties Hibernate
+        java.util.Map<String, Object> properties = new java.util.HashMap<>();
+        properties.put("hibernate.hbm2ddl.auto", "update"); // create-drop, create, update, validate, none
+        properties.put("hibernate.show_sql", true);
+        properties.put("hibernate.format_sql", true);
+        em.setJpaPropertyMap(properties);
+        
         return em;
     }
 

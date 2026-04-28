@@ -28,3 +28,29 @@ Notes d'exécution :
 - Si vous préférez que je commit les fichiers ou exécute une compilation, dites-moi et j'exécute les commandes.
 
 --- FIN DU WORKFLOW ---
+
+- Toujours avec le worflow et les commentaires , même chose mais en ManyToMany maintenant , 
+toujours complémentaire avec les classes 
+
+--- WORKFLOW (ManyToMany) ---
+6) Ajout de l'entité `Projet` dans `src/main/java/com/mrNaina/models/Projet.java` :
+	- Entité JPA représentant un projet.
+	- Contient `@ManyToMany(mappedBy = "projets")` vers `Olona` (côté inverse).
+
+7) Mise à jour de `Olona` (`src/main/java/com/mrNaina/models/Olona.java`) :
+	- Ajout d'un `Set<Projet> projets` annoté `@ManyToMany` + `@JoinTable("olona_projet")` (côté propriétaire).
+	- Helpers `addProjet` / `removeProjet` pour maintenir les deux côtés.
+
+8) Ajout de `ProjetRepository` (`src/main/java/com/mrNaina/repository/ProjetRepository.java`) :
+	- Interface `JpaRepository<Projet, Integer>` pour persister les projets.
+
+9) Mise à jour de `Main.java` :
+	- Récupération du bean `ProjetRepository`.
+	- Test de création de `Olona` et `Projet`, liaison ManyToMany via les helpers, persistance et affichage.
+
+10) Commentaires dans le code :
+	- J'ai ajouté des commentaires courts expliquant le rôle du côté propriétaire (`Olona`) et du côté inverse (`Projet`) et comment garder les deux côtés synchronisés.
+
+Notes d'exécution (ManyToMany) :
+- Pour tester : compiler et exécuter `Main`. Les relations ManyToMany seront créées, les tables de jointure peuplées, et la console affichera les participants par projet.
+- Si besoin, je peux exécuter `mvn -q compile` ici et partager la sortie.
