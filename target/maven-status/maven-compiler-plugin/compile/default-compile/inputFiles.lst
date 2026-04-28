@@ -1,6 +1,8 @@
 /home/balou/S4/WebDy/Projet/Hibernate-Spring/src/main/java/com/mrNaina/Main.java
 /home/balou/S4/WebDy/Projet/Hibernate-Spring/src/main/java/com/mrNaina/models/Olona.java
+/home/balou/S4/WebDy/Projet/Hibernate-Spring/src/main/java/com/mrNaina/models/Groupe.java
 /home/balou/S4/WebDy/Projet/Hibernate-Spring/src/main/java/com/mrNaina/config/HibernateConfig.java
+/home/balou/S4/WebDy/Projet/Hibernate-Spring/src/main/java/com/mrNaina/repository/GroupeRepository.java
 /home/balou/S4/WebDy/Projet/Hibernate-Spring/src/main/java/com/mrNaina/TestConnexion.java
 /home/balou/S4/WebDy/Projet/Hibernate-Spring/src/main/java/com/mrNaina/App.java
 /home/balou/S4/WebDy/Projet/Hibernate-Spring/src/main/java/com/mrNaina/repository/OlonaRepository.java

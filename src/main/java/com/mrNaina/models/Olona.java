@@ -5,6 +5,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Column;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
 
 @Entity
 public class Olona {
@@ -14,6 +16,11 @@ public class Olona {
 
     @Column(name= "nom")
     String nom;
+
+    // ManyToOne side: chaque Olona appartient à un Groupe
+    @ManyToOne
+    @JoinColumn(name = "groupe_id")
+    Groupe groupe;
 
     public Olona() {
     }
@@ -29,6 +36,14 @@ public class Olona {
     }
     public void setNom(String nom) {
         this.nom = nom;
+    }
+
+    // Getter/Setter pour la relation ManyToOne
+    public Groupe getGroupe() {
+        return groupe;
+    }
+    public void setGroupe(Groupe groupe) {
+        this.groupe = groupe;
     }
 
 }

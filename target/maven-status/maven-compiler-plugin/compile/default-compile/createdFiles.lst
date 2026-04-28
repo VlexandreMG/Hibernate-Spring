@@ -1,6 +1,8 @@
+com/mrNaina/repository/GroupeRepository.class
+com/mrNaina/models/Olona.class
+com/mrNaina/models/Groupe.class
+com/mrNaina/repository/OlonaRepository.class
+com/mrNaina/TestConnexion.class
 com/mrNaina/config/HibernateConfig.class
 com/mrNaina/Main.class
 com/mrNaina/App.class
-com/mrNaina/models/Olona.class
-com/mrNaina/repository/OlonaRepository.class
-com/mrNaina/TestConnexion.class

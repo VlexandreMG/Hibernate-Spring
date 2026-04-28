@@ -1,0 +1,30 @@
+Je veux que tu me fasse une classe dans models ,
+qui fera du OneToMany et du ManyToOne complémentaire avec la classe Olona , 
+qu'on testera avec Main.java . 
+Je veux le workflow de ce que tu fais dans ce prompt.txt et les commentaires sur ce que tu fais 
+
+--- WORKFLOW (ce que j'ai fait) ---
+1) Ajout de l'entité `Groupe` dans `src/main/java/com/mrNaina/models/Groupe.java` :
+	- Entité JPA avec `@OneToMany(mappedBy = "groupe", cascade = CascadeType.ALL)` vers `Olona`.
+	- Méthodes utilitaires `addMembre` / `removeMembre` pour maintenir les deux côtés de la relation.
+
+2) Modification de `Olona` (`src/main/java/com/mrNaina/models/Olona.java`) :
+	- Ajout d'un champ `Groupe groupe` annoté `@ManyToOne` et `@JoinColumn(name = "groupe_id")`.
+	- Ajout des getters/setters pour la relation.
+
+3) Ajout de `GroupeRepository` (`src/main/java/com/mrNaina/repository/GroupeRepository.java`) :
+	- Interface `JpaRepository<Groupe, Integer>` pour persister des groupes.
+
+4) Mise à jour de `Main.java` (`src/main/java/com/mrNaina/Main.java`) :
+	- Récupération des beans `GroupeRepository` et `OlonaRepository`.
+	- Création d'un `Groupe`, ajout de deux `Olona` via `addMembre`, puis `groupeRepo.save(g)`.
+	- Affichage des `Olona` en base pour vérifier la relation.
+
+5) Commentaires dans le code :
+	- J'ai ajouté des commentaires courts à chaque entité et dans `Main.java` expliquant l'intention et la façon dont les deux côtés de la relation sont maintenus.
+
+Notes d'exécution :
+- Pour tester : compiler et exécuter `Main`. Le `Groupe` et ses `Olona` seront persistés (cascade) et vous verrez les sorties dans la console.
+- Si vous préférez que je commit les fichiers ou exécute une compilation, dites-moi et j'exécute les commandes.
+
+--- FIN DU WORKFLOW ---
